@@ -10,9 +10,9 @@ const errorMiddleware = (err, req, res, next) => {
         console.log(error);
 
         // Mongoose bad ObjectId
-        if (err.name === 'CastErrro') {
+        if (err.name === 'CastError') {
             const message = 'Resource not found';
-            error = new Error('Resource not found');
+            error = new Error(message);
             error.statusCode = 404;
         }
         // Mongoose duplicate key

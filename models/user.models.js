@@ -9,12 +9,16 @@ const userSchema = new mongoose.Schema({
         maxLength: [50, 'Name must be at most 50 characters long']
     },
     email: {
-        tyep: String,
+        type: String,
         required: [true, 'Email is required'],
         Unique: true,
         trim: true,
         lowercase: true,
-        match: [/.+\@.+\..+/, 'Please fill a valid email address'] // Regex for email validation
+        match: [
+            /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+            'Please fill a valid email address'
+        ]
+        // Regex for email validation
     },
     password: {
         type: String,
