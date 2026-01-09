@@ -55,7 +55,7 @@ export const SignIn = async (req, res, next) => {
 
         if(!user){
             const error = new Error('user not found');
-            error.statuCode = 404;
+            error.statusCode = 404;
             throw error;
         }
 
