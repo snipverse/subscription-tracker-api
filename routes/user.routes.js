@@ -8,14 +8,8 @@ const userRouter = Router();
 // / GET /Users - Fetch all users
 // / GET /Users/:id - Fetch user details by ID // 123 // 4556
 
-userRouter.get('/', getUsers);
+userRouter.get('/', authorize, getUsers);
 
-userRouter.get('/:id', authorize,  getUser);
-
-userRouter.post('/', (req, res) => res.send({title: 'Create New User'}));
-
-userRouter.put('/:id', (req, res) => res.send({title: 'Update User'}));
-
-userRouter.delete('/:id', (req, res) => res.send({title: 'Delete User'}));
+userRouter.get('/:id', authorize, getUser);
 
 export default userRouter;

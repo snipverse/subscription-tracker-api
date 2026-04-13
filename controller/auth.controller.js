@@ -83,4 +83,13 @@ export const SignIn = async (req, res, next) => {
     }
 }
 
-export const SignOut = async (req, res, next) => {}
+export const SignOut = async (req, res, next) => {
+  try {
+    res.status(200).json({
+      success: true,
+      message: "Logged out successfully (delete token on client)"
+    });
+  } catch (error) {
+    next(error);
+  }
+};
